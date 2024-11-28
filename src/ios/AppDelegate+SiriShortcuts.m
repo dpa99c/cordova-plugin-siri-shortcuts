@@ -13,18 +13,5 @@ static void * UserActivityPropertyKey = &UserActivityPropertyKey;
     objc_setAssociatedObject(self, UserActivityPropertyKey, activity, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (BOOL)application:(UIApplication *)application
-continueUserActivity:(NSUserActivity *)userActivity
- restorationHandler:(void (^)(NSArray *))restorationHandler {
-    NSString *bundleIdentifier = [[NSBundle mainBundle] bundleIdentifier];
-    if ([userActivity.activityType isEqualToString:[NSString stringWithFormat:@"%@.shortcut", bundleIdentifier]])
-    {
-        self.userActivity = userActivity;
-
-        return YES;
-    }
-
-    return NO;
-}
 
 @end
