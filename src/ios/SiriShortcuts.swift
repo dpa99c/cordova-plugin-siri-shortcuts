@@ -263,12 +263,19 @@ import IntentsUI
         ActivityDataHolder.setUserInfo(userInfo)
 
         activity.needsSave = true
-
-        // donate shortcut
-        self.viewController?.userActivity = activity
+        
+        activity.addUserInfoEntries(from: userInfo)
+        
       } else {
         activity.userInfo = userInfo
       }
+      
+      // donate shortcut
+      DispatchQueue.main.async {
+        self.viewController?.userActivity = activity
+      }
+      
+      activity.becomeCurrent()
 
       return activity
     } else {
