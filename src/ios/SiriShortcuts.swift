@@ -212,18 +212,18 @@ import IntentsUI
   /************************
    * Internal functions
    ************************/
-  
+
   override func pluginInitialize() {
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(continueUserActivity(_:)),
-            name: NSNotification.Name(rawValue: UIApplicationContinueUserActivity),
-            object: nil
-        )
-    }
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(continueUserActivity(_:)),
+      name: NSNotification.Name(rawValue: UIApplicationContinueUserActivity),
+      object: nil
+    )
+  }
 
   @objc(continueUserActivity:) func continueUserActivity(_ notification: NSNotification) {
-    let userActivity =  notification.object as! NSUserActivity;
+    let userActivity = notification.object as! NSUserActivity
     if userActivity.activityType == "\(Bundle.main.bundleIdentifier ?? "").shortcut" {
       let appDelegate = UIApplication.shared.delegate as! AppDelegate
       appDelegate.userActivity = userActivity
