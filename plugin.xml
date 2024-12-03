@@ -6,7 +6,7 @@
     </js-module>
 
     <dependency id="cordova-plugin-add-swift-support"/>
-    <dependency id="cordova-plugin-ios-app-delegate-events  "/>
+    <dependency id="cordova-plugin-ios-app-delegate-events"/>
 
     <platform name="ios">
         <config-file target="config.xml" parent="/*">
